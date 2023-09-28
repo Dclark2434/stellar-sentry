@@ -2,6 +2,7 @@ import sys
 import pygame
 
 from settings import Settings
+from player import Player
 
 class StellarSentry:
 
@@ -14,6 +15,8 @@ class StellarSentry:
             (self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Stellar Sentry")
 
+        self.player = Player(self)
+
     def run_game(self):
         while True:
             for event in pygame.event.get():
@@ -21,6 +24,7 @@ class StellarSentry:
                     sys.exit()
 
             self.screen.fill(self.settings.bg_color)
+            self.player.blitme()
             pygame.display.flip()
             self.clock.tick(60)
 
