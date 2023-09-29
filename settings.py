@@ -7,4 +7,4 @@ class Settings:
         self.bg_color = (48, 20, 61)
 
        # Player settings
-        self.player_speed = 1.5 
+        self.player_speed = 5

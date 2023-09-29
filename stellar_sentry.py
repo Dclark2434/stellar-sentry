@@ -32,16 +32,23 @@ class StellarSentry:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
+
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_d:
-                    self.player.moving_right = True
-                elif event.key == pygame.K_a:
-                    self.player.moving_left = True
+                self._check_keydown_events(event)
             elif event.type == pygame.KEYUP:
-                if event.key == pygame.K_d:
-                    self.player.moving_right = False
-                elif event.key == pygame.K_a:
-                    self.player.moving_left = False
+                self._check_keyup_events(event)
+
+    def _check_keydown_events(self, event):
+        if event.key == pygame.K_d:
+            self.player.moving_right = True
+        elif event.key == pygame.K_a:
+            self.player.moving_left = True
+
+    def _check_keyup_events(self, event):
+        if event.key == pygame.K_d:
+            self.player.moving_right = False
+        elif event.key == pygame.K_a:
+            self.player.moving_left = False
 
     def _update_screen(self): 
         # Redraw the screen during each pass through the loop.
